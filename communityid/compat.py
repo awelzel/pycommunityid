@@ -1,7 +1,7 @@
 """
 Helpers to help deal with both Python 2 and 3.
 """
-from builtins import str
+import sys
 
 # Provide a way to determine whether an object is an instance of the
 # newer IP address abstractions. This currently does not support the
@@ -29,6 +29,7 @@ except ImportError:
     def is_ipaddress_type(_):
         return False
 
+
 def have_real_bytes_type():
-    # These differ in Python 3, but are the same in Python 2
-    return bytes != str
+    # Only Python 3.x has a real bytes type
+    return sys.version_info[0] >= 3
