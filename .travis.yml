@@ -1,0 +1,14 @@
+language: minimal
+
+jobs:
+  include:
+    - name: Ubuntu 18.04 LTS - Bionic
+      dist: bionic
+      install:
+      - sudo apt-get update
+      - sudo apt-get install -y --no-install-recommends python2.7 python2.7-dev python-virtualenv
+      - sudo apt-get install -y --no-install-recommends python3.7 python3.7-dev
+      - sudo apt-get install -y --no-install-recommends tox
+
+script:
+- tox
